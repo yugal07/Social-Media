@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Post = require("./Post");
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -24,15 +25,15 @@ const userSchema = new mongoose.Schema({
     },
     posts: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: Post
+        ref: "Post"
     }],
     followers: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: User
+        ref: "User"
     }],
     following: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: User
+        ref: "User"
     }]
 } , {
     timestamps: true
